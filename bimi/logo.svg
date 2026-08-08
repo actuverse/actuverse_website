@@ -4,7 +4,7 @@
      baseProfile="tiny-ps"
      viewBox="0 0 1000 1000">
   <title>Actuverse</title>
-  <desc>Actuverse logo on a dark navy background for BIMI display, enlarged with tighter cropping.</desc>
+  <desc>Actuverse logo on a dark navy background for BIMI display.</desc>
 
   <defs>
     <linearGradient id="logoGradient" x1="0" y1="0" x2="0" y2="1">
@@ -25,20 +25,17 @@
 
   <rect width="1000" height="1000" fill="#01091C"/>
 
-  <!-- Enlarged and slightly raised logo group for tighter BIMI framing -->
-  <g transform="translate(-55,-35) scale(1.14)">
-    <polygon
-      points="400.25,388.70 183.95,786.65 291.05,786.65 453.80,486.35"
-      fill="url(#logoGradient)"/>
+  <polygon
+    points="400.25,388.70 183.95,786.65 291.05,786.65 453.80,486.35"
+    fill="url(#logoGradient)"/>
 
-    <polygon
-      points="497.90,213.35 418.10,357.20 471.65,452.75 500.00,403.40 710.00,785.60 815.00,786.65"
-      fill="url(#logoGradient)"/>
+  <polygon
+    points="497.90,213.35 418.10,357.20 471.65,452.75 500.00,403.40 710.00,785.60 815.00,786.65"
+    fill="url(#logoGradient)"/>
 
-    <polygon
-      points="630.20,449.60 651.20,490.55 599.75,585.05 578.75,544.10"
-      fill="url(#facetGradient)"/>
+  <polygon
+    points="630.20,449.60 651.20,490.55 599.75,585.05 578.75,544.10"
+    fill="url(#facetGradient)"/>
 
-    <circle cx="500" cy="699.5" r="53.5" fill="url(#dotGradient)"/>
-  </g>
+  <circle cx="500" cy="699.5" r="53.5" fill="url(#dotGradient)"/>
 </svg>
