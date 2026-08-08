@@ -494,10 +494,10 @@
   }
 </style>
 </head>
-<body>
+<body id="top">
 
 <div id="intro-splash">
-  <video id="intro-video" autoplay muted playsinline preload="auto">
+  <video id="intro-video" autoplay muted playsinline webkit-playsinline preload="auto">
     <source src="assets/actuverse-intro.mp4" type="video/mp4">
   </video>
   <button id="intro-skip" type="button" aria-label="Skip intro">Skip intro →</button>
@@ -505,10 +505,10 @@
 
 <header class="nav">
   <div class="nav-inner">
-    <div class="brand">
+    <a href="#top" class="brand">
       <img src="assets/logo-mark.png" alt="Actuverse logo">
       ACTUVERSE
-    </div>
+    </a>
     <nav class="nav-links">
       <a href="#services">Services</a>
       <a href="#why">Why Actuverse</a>
@@ -651,15 +651,36 @@
     }
 
     if (video){
+      // Belt-and-braces for Android/mobile browsers that only honor the
+      // muted property (not just the attribute) before allowing autoplay.
+      video.muted = true;
+      video.defaultMuted = true;
+
       video.addEventListener('ended', endIntro);
       // If the video can't play (blocked, unsupported, errors out), don't trap the visitor.
       video.addEventListener('error', endIntro);
-      var playAttempt = video.play();
-      if (playAttempt && typeof playAttempt.catch === 'function'){
-        playAttempt.catch(endIntro);
-      }
-      // Safety net in case metadata/events never fire.
-      setTimeout(endIntro, 15000);
+
+      var tryPlay = function(){
+        var playAttempt = video.play();
+        if (playAttempt && typeof playAttempt.catch === 'function'){
+          playAttempt.catch(function(){
+            // Some mobile browsers reject the first attempt until metadata
+            // has fully loaded; give it one retry, then give up gracefully.
+            video.addEventListener('loadeddata', function retry(){
+              video.removeEventListener('loadeddata', retry);
+              var retryAttempt = video.play();
+              if (retryAttempt && typeof retryAttempt.catch === 'function'){
+                retryAttempt.catch(endIntro);
+              }
+            });
+          });
+        }
+      };
+      tryPlay();
+
+      // Safety net in case metadata/events never fire (slow connections,
+      // unsupported codecs on older devices, etc.) — don't make anyone wait long.
+      setTimeout(endIntro, 10000);
     } else {
       endIntro();
     }
