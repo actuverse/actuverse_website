@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     version="1.2"
+     baseProfile="tiny-ps"
+     viewBox="0 0 1000 1000">
+  <title>Actuverse</title>
+  <desc>Actuverse logo on a dark navy background for BIMI display.</desc>
+
+  <defs>
+    <linearGradient id="logoGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#00E2FE"/>
+      <stop offset="0.34" stop-color="#00C8FE"/>
+      <stop offset="0.68" stop-color="#2186FE"/>
+      <stop offset="1" stop-color="#5147FF"/>
+    </linearGradient>
+    <linearGradient id="facetGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#087ED8"/>
+      <stop offset="1" stop-color="#0058BB"/>
+    </linearGradient>
+    <linearGradient id="dotGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#168DFE"/>
+      <stop offset="1" stop-color="#494CFF"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="1000" fill="#01091C"/>
+
+  <polygon
+    points="400.25,388.70 183.95,786.65 291.05,786.65 453.80,486.35"
+    fill="url(#logoGradient)"/>
+
+  <polygon
+    points="497.90,213.35 418.10,357.20 471.65,452.75 500.00,403.40 710.00,785.60 815.00,786.65"
+    fill="url(#logoGradient)"/>
+
+  <polygon
+    points="630.20,449.60 651.20,490.55 599.75,585.05 578.75,544.10"
+    fill="url(#facetGradient)"/>
+
+  <circle cx="500" cy="699.5" r="53.5" fill="url(#dotGradient)"/>
+</svg>
