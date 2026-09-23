@@ -102,8 +102,26 @@
     letter-spacing:0.02em;
   }
   .brand img{ height:26px; width:auto; display:block; }
-  .nav-links{ display:flex; gap:32px; font-size:0.92rem; color:var(--text-1); }
+  .nav-links{ display:flex; align-items:center; gap:32px; font-size:0.92rem; color:var(--text-1); }
   .nav-links a:hover{ color:var(--cyan); }
+  .nav-sep{
+    width:1px;
+    height:14px;
+    background: var(--line);
+    display:inline-block;
+  }
+  .nav-links a.nav-external{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    color: var(--text-2);
+  }
+  .nav-links a.nav-external:hover{ color: var(--cyan); }
+  .nav-links a.nav-external svg{
+    width:9px; height:9px;
+    flex-shrink:0;
+    opacity:0.85;
+  }
   .nav-cta{
     border:1px solid var(--line);
     padding:8px 18px;
@@ -331,6 +349,7 @@
   .tag-row{
     display:flex;
     align-items:center;
+    justify-content: space-between;
     flex-wrap: wrap;
     gap: 8px;
     margin-top: auto;
@@ -350,6 +369,25 @@
     border:1px solid var(--line);
     background: rgba(255,255,255,0.03);
   }
+  .card-cta-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:5px 12px;
+    border-radius:100px;
+    border:1px solid rgba(34,211,238,0.35);
+    background: rgba(34,211,238,0.08);
+    color: var(--text-0);
+    font-size:0.72rem;
+    font-weight:500;
+    transition: border-color .2s ease, background .2s ease, color .2s ease;
+  }
+  .card-cta-btn:hover{
+    border-color: var(--cyan);
+    background: rgba(34,211,238,0.14);
+    color: var(--cyan);
+  }
+  .card-cta-btn svg{ width:8px; height:8px; flex-shrink:0; }
   .card h3{
     font-size: min(1.3rem, calc((100vw - 140px) / 21));
     font-weight: 600;
@@ -695,6 +733,8 @@
       <a href="#services">Services</a>
       <a href="#why">Why Actuverse</a>
       <a href="#contact">Contact</a>
+      <span class="nav-sep" aria-hidden="true"></span>
+      <a href="https://actuverse.uk" target="_blank" rel="noopener" class="nav-external">Traditional Methods<svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 7.5L7.5 2.5M7.5 2.5H3.5M7.5 2.5V6.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </nav>
     <a class="nav-cta" href="#contact">Get in touch</a>
   </div>
@@ -743,6 +783,7 @@
         <p>This is the foundation the profession stands on, and it's never treated as an afterthought.</p>
         <div class="tag-row">
           <span class="status-tag">Available now</span>
+          <a href="https://actuverse.uk" target="_blank" rel="noopener" class="card-cta-btn">Explore actuverse.uk<svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 7.5L7.5 2.5M7.5 2.5H3.5M7.5 2.5V6.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
     </div>
