@@ -415,6 +415,111 @@
   }
   .principle p{ color: var(--text-2); font-size: 0.92rem; }
 
+  /* ---------- WHAT IS AI ---------- */
+  .whatisai-section{
+    background: var(--bg-0);
+  }
+  .grad-text{
+    background: linear-gradient(90deg, var(--cyan), var(--blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .whatisai-box{
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    border: 1px solid rgba(34,211,238,0.28);
+    padding: 56px;
+    background-image:
+      linear-gradient(160deg, rgba(19,27,49,0.55), rgba(15,21,38,0.72)),
+      url('assets/network-frame.png');
+    background-size: cover;
+    background-position: center;
+    background-color: var(--bg-1);
+    transition: border-color .25s ease, box-shadow .25s ease;
+  }
+  .whatisai-box::before{
+    content:"";
+    position:absolute;
+    top:0; left:0; right:0; height:2px;
+    background: linear-gradient(90deg, var(--cyan), var(--violet));
+    border-radius: 18px 18px 0 0;
+  }
+  .whatisai-box::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius: inherit;
+    background: radial-gradient(280px circle at var(--mx,50%) var(--my,50%), rgba(34,211,238,0.16), transparent 70%);
+    opacity: 0;
+    transition: opacity .3s ease;
+    pointer-events: none;
+  }
+  .whatisai-box:hover::after{ opacity: 1; }
+  .whatisai-box:hover{
+    border-color: rgba(34,211,238,0.45);
+    box-shadow: 0 0 44px rgba(34,211,238,0.10);
+  }
+  .whatisai-box .section-head{ margin-bottom: 36px; }
+  .whatisai-intro{
+    max-width: none;
+    color: var(--text-1);
+    font-size: 1.05rem;
+    margin-bottom: 44px;
+  }
+  .ai-categories{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 28px;
+  }
+  @media (max-width: 860px){
+    .ai-categories{ grid-template-columns: 1fr; }
+  }
+  .ai-category{
+    border-radius: 10px;
+    padding: 24px;
+    border: 1px solid var(--line);
+    background: rgba(8,11,20,0.35);
+  }
+  .ai-category .mark{
+    width: 32px; height:32px;
+    border-radius: 8px;
+    border: 1px solid rgba(34,211,238,0.3);
+    background: rgba(34,211,238,0.08);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom: 14px;
+  }
+  .ai-category .mark svg{ width:14px; height:14px; }
+  .ai-category h4{
+    font-family:'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-0);
+  }
+  .ai-category p{ color: var(--text-2); font-size: 0.9rem; }
+  .ai-focus{
+    border-radius: 10px;
+    padding: 28px 32px;
+    border: 1px solid rgba(34,211,238,0.4);
+    background: rgba(34,211,238,0.05);
+  }
+  .ai-focus h4{
+    font-family:'Space Grotesk', sans-serif;
+    font-size: 1.02rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-0);
+  }
+  .ai-focus p{ color: var(--text-1); font-size: 0.96rem; }
+  .ai-focus p:last-child{ margin-bottom: 0; }
+
+  @media (max-width: 640px){
+    .whatisai-box{ padding: 32px 24px; }
+  }
+
   /* ---------- CONTACT ---------- */
   .contact-box{
     position: relative;
@@ -646,6 +751,43 @@
 
 <div class="divider"></div>
 
+<section id="what-is-ai" class="whatisai-section">
+  <div class="wrap">
+    <div class="whatisai-box">
+      <div class="section-head">
+        <span class="eyebrow">AI, Defined</span>
+        <h2>What is <span class="grad-text">AI</span>?</h2>
+      </div>
+      <p class="whatisai-intro">"AI" is a term that covers a broad range of technologies, often used interchangeably with Machine Learning and Deep Learning, and it helps to be specific about which ones we mean, especially as all these areas are developing fast. The categories below aren't strictly separate: generative AI and agentic tools are themselves built on deep learning. The application and architecture are what make a fundamental difference, and it's that difference in use that matters most here.</p>
+
+      <div class="ai-categories">
+        <div class="ai-category">
+          <div class="mark"><svg viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 10L5 4L7 8L9 3L12 10" stroke="#22d3ee" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h4>Generative AI, LLMs and chatbots</h4>
+          <p>Tools like ChatGPT and Claude that generate text and images, answer questions, and hold conversations. Increasingly used for drafting, summarising, and research support.</p>
+        </div>
+        <div class="ai-category">
+          <div class="mark"><svg viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="4" cy="9" r="2" stroke="#22d3ee" stroke-width="1.2"/><circle cx="10" cy="4" r="2" stroke="#22d3ee" stroke-width="1.2"/><path d="M5.5 7.8L8.5 5.2" stroke="#22d3ee" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+          <h4>Agentic AI</h4>
+          <p>Systems that take actions on your behalf: booking things, navigating software, completing multi-step tasks with limited human input. Agentic AI is what you get when a chat LLM is harnessed with tools and instructions, and left to act on them.</p>
+        </div>
+        <div class="ai-category">
+          <div class="mark"><svg viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="2.5" cy="10.5" r="1.3" stroke="#22d3ee" stroke-width="1.1"/><circle cx="7" cy="6.5" r="1.3" stroke="#22d3ee" stroke-width="1.1"/><circle cx="11.5" cy="2.5" r="1.3" stroke="#22d3ee" stroke-width="1.1"/><path d="M3.7 9.5L5.9 7.5M8.1 5.5L10.3 3.5" stroke="#22d3ee" stroke-width="1.1" stroke-linecap="round"/></svg></div>
+          <h4>Machine learning and deep learning</h4>
+          <p>Statistical models trained on data to find patterns, make predictions, or estimate outcomes. This includes techniques like gradient boosting and neural networks, used for tasks such as predicting claims development, pricing risk, capital modelling, and reserve risk.</p>
+        </div>
+      </div>
+
+      <div class="ai-focus">
+        <h4>Actuverse's focus sits in the third category</h4>
+        <p>We use machine learning and deep learning to strengthen actuarial modelling: reserving, reserve risk, capital modelling, and pricing. We're not building chatbots or agentic tools, though we recognise these are growing parts of the wider AI and actuarial landscape.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <section id="why" class="why-section">
   <div class="wrap">
     <div class="section-head">
@@ -796,7 +938,7 @@
 </script>
 
 <script>
-  document.querySelectorAll('.card').forEach(function(card){
+  document.querySelectorAll('.card, .whatisai-box').forEach(function(card){
     card.addEventListener('mousemove', function(e){
       var rect = card.getBoundingClientRect();
       card.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
